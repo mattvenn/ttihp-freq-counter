@@ -5,7 +5,8 @@
 SIM ?= icarus
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = project.v
+PROJECT_SOURCES = tt_um_frequency_counter.v ../frequency_counter/src/edge_detect.v ../frequency_counter/src/seven_segment.v ..//frequency_counter/src/frequency_counter.v
+PYTHON_PATH ?= ../
 
 ifneq ($(GATES),yes)
 

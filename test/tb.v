@@ -14,17 +14,29 @@ module tb ();
   end
 
   // Wire up the inputs and outputs:
-  reg clk;
-  reg rst_n;
-  reg ena;
-  reg [7:0] ui_in;
-  reg [7:0] uio_in;
-  wire [7:0] uo_out;
-  wire [7:0] uio_out;
-  wire [7:0] uio_oe;
+    reg clk;
+    reg rst_n;
+    reg ena;
+    reg debug_mode;
+    reg signal;
+    reg [11:0] period;
+    reg load_period;
+
+    // convenience names, easier to read in the trace and cocotb test
+    wire [1:0] dbg_state = uio_out[1:0];
+    wire [2:0] dbg_clk_count = uio_out[4:2];
+    wire [2:0] dbg_edge_count = uio_out[7:5];
+    wire digit = uo_out[7];
+    wire [6:0] segments = uo_out[6:0];
+
+    wire [7:0] ui_in = { period[11:8], 1'bz, load_period, debug_mode, signal };
+    wire [7:0] uio_in = period[7:0];
+    wire [7:0] uo_out;
+    wire [7:0] uio_out;
+    wire [7:0] uio_oe;
 
   // Replace tt_um_example with your module name:
-  tt_um_example user_project (
+  tt_um_frequency_counter tt_um_frequency_counter (
       .ui_in  (ui_in),    // Dedicated inputs
       .uo_out (uo_out),   // Dedicated outputs
       .uio_in (uio_in),   // IOs: Input path
