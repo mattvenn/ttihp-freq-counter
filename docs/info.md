@@ -7,6 +7,8 @@ You can also include images in this folder and reference them in the markdown. E
 512 kb in size, and the combined size of all images must be less than 1 MB.
 -->
 
+![demo](freq_count.jpg)
+
 ## How it works
 
 Debounces the input signal and counts how many transistions occur in a given period. A state machine
