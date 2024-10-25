@@ -22,6 +22,10 @@ module tb ();
     reg [11:0] period;
     reg load_period;
 
+    wire [7:0] uo_out;
+    wire [7:0] uio_out;
+    wire [7:0] uio_oe;
+
     // convenience names, easier to read in the trace and cocotb test
     wire [1:0] dbg_state = uio_out[1:0];
     wire [2:0] dbg_clk_count = uio_out[4:2];
@@ -31,9 +35,6 @@ module tb ();
 
     wire [7:0] ui_in = { period[11:8], 1'bz, load_period, debug_mode, signal };
     wire [7:0] uio_in = period[7:0];
-    wire [7:0] uo_out;
-    wire [7:0] uio_out;
-    wire [7:0] uio_oe;
 
   // Replace tt_um_example with your module name:
   tt_um_frequency_counter tt_um_frequency_counter (
