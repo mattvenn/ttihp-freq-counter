@@ -18,9 +18,9 @@ project:
   # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:        
     - tt_um_frequency_counter.v
-    - frequency_counter/src/edge_detect.v
-    - frequency_counter/src/frequency_counter.v
-    - frequency_counter/src/seven_segment.v
+    - ../frequency_counter/src/edge_detect.v
+    - ../frequency_counter/src/frequency_counter.v
+    - ../frequency_counter/src/seven_segment.v
 
 pinout:
   # Inputs
